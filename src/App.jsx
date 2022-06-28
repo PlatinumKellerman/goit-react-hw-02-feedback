@@ -3,6 +3,7 @@ import Feedback from './components/Feedback/Feedback';
 import Buttons from './components/Buttons/Buttons';
 import Statistics from './components/Statistics/Statistics';
 import Notification from './components/Notification/Notification';
+import Container from 'components/Container/Container';
 
 export class App extends Component {
   state = {
@@ -51,8 +52,8 @@ export class App extends Component {
 
   render() {
     return (
-      <>
-        <Feedback />
+      <Container>
+        <Feedback title="Please leave feedback" />
         <Buttons
           handleGoodFeedbacks={this.handleGoodFeedbacks}
           handleNeutralFeedbacks={this.handleNeutralFeedbacks}
@@ -66,9 +67,9 @@ export class App extends Component {
             countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
           />
         ) : (
-          <Notification />
+          <Notification title="There is no feedback" />
         )}
-      </>
+      </Container>
     );
   }
 }

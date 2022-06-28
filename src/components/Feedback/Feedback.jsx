@@ -1,10 +1,11 @@
+import Container from 'components/Container/Container';
 import s from './feedback.module.css';
 
-function Feedback() {
+function Feedback({ title }) {
   return (
-    <div className={s.container}>
-      <h2 className={s.title}>Please leave feedback</h2>
-    </div>
+    <Container>
+      <h1 className={s.title}>{title}</h1>
+    </Container>
   );
 }
 
