@@ -12,26 +12,11 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleGoodFeedbacks = () => {
+  handleFeedbacks = e => {
+    const { name } = e.target;
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-
-  handleNeutralFeedbacks = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-
-  handleBadFeedbacks = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [name]: prevState[name] + 1,
       };
     });
   };
@@ -55,11 +40,9 @@ export class App extends Component {
       <Container>
         <Feedback title="Please leave feedback" />
         <Buttons
-          handleGoodFeedbacks={this.handleGoodFeedbacks}
-          handleNeutralFeedbacks={this.handleNeutralFeedbacks}
-          handleBadFeedbacks={this.handleBadFeedbacks}
+          handleFeedbacks={this.handleFeedbacks}
+          stateKeys={Object.keys(this.state)}
         />
-
         {this.countTotalFeedback() > 0 ? (
           <Statistics
             state={this.state}

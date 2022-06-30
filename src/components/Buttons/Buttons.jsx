@@ -1,41 +1,25 @@
+import PropTypes from 'prop-types';
 import s from './buttons.module.css';
 
-function Buttons({
-  handleGoodFeedbacks,
-  handleNeutralFeedbacks,
-  handleBadFeedbacks,
-}) {
-  return (
-    <ul className={s.buttons__list}>
-      <li className={s.list__item}>
-        <button
-          type="button"
-          onClick={handleGoodFeedbacks}
-          className={s.feedback__button}
-        >
-          Good
-        </button>
-      </li>
-      <li className={s.list__item}>
-        <button
-          type="button"
-          onClick={handleNeutralFeedbacks}
-          className={s.feedback__button}
-        >
-          Neutral
-        </button>
-      </li>
-      <li className={s.list__item}>
-        <button
-          type="button"
-          onClick={handleBadFeedbacks}
-          className={s.feedback__button}
-        >
-          Bad
-        </button>
-      </li>
-    </ul>
-  );
+function Buttons({ handleFeedbacks, stateKeys }) {
+  return stateKeys.map(button => {
+    return (
+      <button
+        className={s.buttons}
+        key={button}
+        name={button}
+        type="button"
+        onClick={handleFeedbacks}
+      >
+        {button}
+      </button>
+    );
+  });
 }
+
+Buttons.propTypes = {
+  handleFeedbacks: PropTypes.func.isRequired,
+  stateKeys: PropTypes.arrayOf(PropTypes.string.isRequired),
+};
 
 export default Buttons;
