@@ -11,7 +11,7 @@ function Statistics({
   const positiveFeedbackPercentage = countPositiveFeedbackPercentage;
   return (
     <div>
-      <h3 className={s.title}>Statistics</h3>
+      <h3 className={s.title}>Statistics:</h3>
       <p className={s.text}>
         <span className={s.text__key}>Good:</span>
         <span className={s.text__value__good}>{good}</span>
@@ -30,7 +30,15 @@ function Statistics({
       </p>
       <p className={s.text}>
         <span className={s.text__key}>Positive feedback:</span>
-        <span className={s.text__value__percentage}>
+        <span
+          className={
+            s[
+              positiveFeedbackPercentage > 50
+                ? 'text__value__percentage__good'
+                : 'text__value__percentage__bad'
+            ]
+          }
+        >
           {positiveFeedbackPercentage}%
         </span>
       </p>

@@ -28,8 +28,15 @@
 
 .text__value__total {
   color: orange;
+  font-size: 20px;
 }
 
-.text__value__percentage {
+.text__value__percentage__good {
   font-size: 32px;
+  color: limegreen;
+}
+
+.text__value__percentage__bad {
+  font-size: 32px;
+  color: red;
 }
