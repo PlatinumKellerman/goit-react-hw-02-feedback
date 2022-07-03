@@ -9,7 +9,6 @@ export function Statistics({
 }) {
   const { good, neutral, bad } = state;
   const total = countTotalFeedback;
-  const positiveFeedbackPercentage = countPositiveFeedbackPercentage;
   return (
     <Container>
       <h3 className={s.title}>Statistics:</h3>
@@ -34,13 +33,13 @@ export function Statistics({
         <span
           className={
             s[
-              positiveFeedbackPercentage > 50
+              countPositiveFeedbackPercentage > 50
                 ? 'text__value__percentage__good'
                 : 'text__value__percentage__bad'
             ]
           }
         >
-          {positiveFeedbackPercentage}%
+          {countPositiveFeedbackPercentage}%
         </span>
       </p>
     </Container>
