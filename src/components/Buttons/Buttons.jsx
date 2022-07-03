@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './buttons.module.css';
 
-function Buttons({ handleFeedbacks, stateKeys }) {
+export function Buttons({ handleFeedbacks, stateKeys }) {
   return stateKeys.map(button => {
     return (
       <button
@@ -21,5 +21,3 @@ Buttons.propTypes = {
   handleFeedbacks: PropTypes.func.isRequired,
   stateKeys: PropTypes.arrayOf(PropTypes.string.isRequired),
 };
-
-export default Buttons;

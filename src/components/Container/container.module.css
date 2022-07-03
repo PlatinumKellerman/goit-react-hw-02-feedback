@@ -1,6 +1,6 @@
 .container {
   display: block;
-  width: 800px;
+  width: auto;
   padding: 20px 20px;
   margin: 0 auto;
   align-items: center;

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import { Container } from '../Container/index';
 import s from './statistics.module.css';
 
-function Statistics({
+export function Statistics({
   state,
   countTotalFeedback,
   countPositiveFeedbackPercentage,
@@ -10,7 +11,7 @@ function Statistics({
   const total = countTotalFeedback;
   const positiveFeedbackPercentage = countPositiveFeedbackPercentage;
   return (
-    <div>
+    <Container>
       <h3 className={s.title}>Statistics:</h3>
       <p className={s.text}>
         <span className={s.text__key}>Good:</span>
@@ -42,7 +43,7 @@ function Statistics({
           {positiveFeedbackPercentage}%
         </span>
       </p>
-    </div>
+    </Container>
   );
 }
 
@@ -51,5 +52,3 @@ Statistics.propTypes = {
   countTotalFeedback: PropTypes.number.isRequired,
   countPositiveFeedbackPercentage: PropTypes.number.isRequired,
 };
-
-export default Statistics;
