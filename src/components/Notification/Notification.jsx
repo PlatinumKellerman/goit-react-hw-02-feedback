@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import s from './notification.module.css';
+import { NotificationText } from './Notification.styled';
 
 export function Notification({ title }) {
-  return <p className={s.notification__text}>{title}</p>;
+  return <NotificationText>{title}</NotificationText>;
 }
 
 Notification.propTypes = {

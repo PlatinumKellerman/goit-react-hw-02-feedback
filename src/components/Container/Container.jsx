@@ -1,5 +1,5 @@
-import s from './container.module.css';
+import { FeedbackContainer } from './Container.styled';
 
 export function Container(props) {
-  return <div className={s.container}>{props.children}</div>;
+  return <FeedbackContainer>{props.children}</FeedbackContainer>;
 }

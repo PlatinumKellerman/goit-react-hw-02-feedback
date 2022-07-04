@@ -1,6 +1,15 @@
 import PropTypes from 'prop-types';
 import { Container } from '../Container/index';
-import s from './statistics.module.css';
+import {
+  StatisticsTitle,
+  Text,
+  TextKey,
+  TextValueGood,
+  TextValueNeutral,
+  TextValueBad,
+  TextValueTotal,
+  Percentage,
+} from './Statistics.styled';
 
 export function Statistics({
   state,
@@ -11,37 +20,33 @@ export function Statistics({
   const total = countTotalFeedback;
   return (
     <Container>
-      <h3 className={s.title}>Statistics:</h3>
-      <p className={s.text}>
-        <span className={s.text__key}>Good:</span>
-        <span className={s.text__value__good}>{good}</span>
-      </p>
-      <p className={s.text}>
-        <span className={s.text__key}>Neutral:</span>
-        <span className={s.text__value__neutral}>{neutral}</span>
-      </p>
-      <p className={s.text}>
-        <span className={s.text__key}>Bad:</span>
-        <span className={s.text__value__bad}>{bad}</span>
-      </p>
-      <p className={s.text}>
-        <span className={s.text__key}>Total:</span>
-        <span className={s.text__value__total}>{total}</span>
-      </p>
-      <p className={s.text}>
-        <span className={s.text__key}>Positive feedback:</span>
-        <span
-          className={
-            s[
-              countPositiveFeedbackPercentage > 50
-                ? 'text__value__percentage__good'
-                : 'text__value__percentage__bad'
-            ]
-          }
+      <StatisticsTitle>Statistics:</StatisticsTitle>
+      <Text>
+        <TextKey>Good:</TextKey>
+        <TextValueGood>{good}</TextValueGood>
+      </Text>
+      <Text>
+        <TextKey>Neutral:</TextKey>
+        <TextValueNeutral>{neutral}</TextValueNeutral>
+      </Text>
+      <Text>
+        <TextKey>Bad:</TextKey>
+        <TextValueBad>{bad}</TextValueBad>
+      </Text>
+      <Text>
+        <TextKey>Total:</TextKey>
+        <TextValueTotal>{total}</TextValueTotal>
+      </Text>
+      <Text>
+        <TextKey>Positive feedback:</TextKey>
+        <Percentage
+          style={{
+            color: countPositiveFeedbackPercentage > 49 ? 'limegreen' : 'red',
+          }}
         >
           {countPositiveFeedbackPercentage}%
-        </span>
-      </p>
+        </Percentage>
+      </Text>
     </Container>
   );
 }

@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
-import s from './buttons.module.css';
+import { FeedbackButtons } from './Buttons.styled';
 
 export function Buttons({ handleFeedbacks, stateKeys }) {
   return stateKeys.map(button => {
     return (
-      <button
-        className={s.buttons}
+      <FeedbackButtons
         key={button}
         name={button}
         type="button"
         onClick={handleFeedbacks}
       >
         {button}
-      </button>
+      </FeedbackButtons>
     );
   });
 }
